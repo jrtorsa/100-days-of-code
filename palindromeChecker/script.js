@@ -4,11 +4,15 @@ const result = document.querySelector('.result');
 
 const isPalindrome = () => {
   const word = text.value;
+  if (!word) {
+    result.innerHTML = 'Enter a Word!';
+    return;
+  }
   const pal = word.split('').reverse().join('');
   if (word !== pal) {
-    result.innerHTML = `The word ${word} is NOT a Palindrome`;
+    result.innerHTML = `${word} is NOT a Palindrome`;
   } else {
-    result.innerHTML = `The word ${word} is a Palindrome!!!`;
+    result.innerHTML = `${word} is a Palindrome!!!`;
   }
   text.value = '';
 };
