@@ -1,6 +1,6 @@
 # Notes
 
-- El usuario prefiere que se le enseñe en **español**. Todas las lecciones y referencias se escriben en español.
-- Nivel de partida (declarado 2026-09-11): principiante total en AWS y en IA/ML.
-- Plazo objetivo (declarado 2026-09-11): 1 a 3 meses para rendir el examen.
-- Motivación: requisito laboral explícito, no interés personal exploratorio — mantener las lecciones concretas y orientadas a aprobar el examen, sin desviarse a teoría no evaluada.
+- Teaching language: **English** (switched 2026-09-11, was Spanish — user asked to move to English). All lessons and reference docs going forward are in English; lesson 1 and the domain map were rewritten in English.
+- Starting level (declared 2026-09-11): total beginner in both AWS and AI/ML.
+- Target timeline (declared 2026-09-11): 1 to 3 months to sit the exam.
+- Motivation: explicit job requirement, not exploratory personal interest — keep lessons concrete and exam-focused, avoid drifting into untested theory.

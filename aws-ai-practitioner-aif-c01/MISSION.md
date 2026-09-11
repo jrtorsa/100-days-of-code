@@ -1,22 +1,22 @@
 # Mission: AWS Certified AI Practitioner (AIF-C01)
 
 ## Why
-Obtener la certificación **AWS Certified AI Practitioner (AIF-C01)** es un requisito laboral. El objetivo concreto es aprobar el examen oficial (puntaje ≥ 700/1000) para cumplir con esa exigencia del trabajo, partiendo de cero tanto en AWS como en IA/ML.
+Getting the **AWS Certified AI Practitioner (AIF-C01)** certification is a job requirement. The concrete goal is to pass the official exam (score ≥ 700/1000) to satisfy that work requirement, starting from zero in both AWS and AI/ML.
 
 ## Success looks like
-- Aprobar el examen AIF-C01 con puntaje ≥ 700/1000.
-- Explicar con tus propias palabras la diferencia entre IA, ML, Deep Learning e IA Generativa, y dar un ejemplo de negocio para cada una.
-- Elegir el servicio de AWS correcto (Bedrock, SageMaker, Comprehend, Rekognition, etc.) para un caso de uso descrito en una pregunta de examen.
-- Identificar riesgos de una solución de IA (sesgo, alucinaciones, privacidad de datos) y qué guardrails/controles de AWS los mitigan.
-- Responder correctamente preguntas de práctica en los 5 dominios del examen sin apoyo externo.
+- Pass the AIF-C01 exam with a score ≥ 700/1000.
+- Explain in your own words the difference between AI, ML, Deep Learning, and Generative AI, with a business example for each.
+- Pick the right AWS service (Bedrock, SageMaker, Comprehend, Rekognition, etc.) for a use case described in an exam-style question.
+- Identify risks of an AI solution (bias, hallucinations, data privacy) and which AWS guardrails/controls mitigate them.
+- Correctly answer practice questions across all 5 exam domains without outside help.
 
 ## Constraints
-- Nivel de partida: **principiante total** en AWS y en IA/ML (declarado por el usuario).
-- Plazo objetivo: **1 a 3 meses**.
-- Presupuesto no especificado: por defecto se priorizan recursos **gratuitos** (AWS Skill Builder free tier, YouTube, documentación oficial). Si el usuario ya tiene un cupón de examen, un curso pago o una fecha de examen reservada, hay que actualizar esta sección.
-- Idioma de enseñanza: **español** (preferencia observada del usuario).
+- Starting level: **total beginner** in AWS and AI/ML (self-declared).
+- Target timeline: **1 to 3 months**.
+- Budget not specified: defaulting to **free resources** (AWS Skill Builder free tier, YouTube, official docs). Update this section if the user already has an exam voucher, a paid course, or a booked exam date.
+- Teaching language: **English** (switched 2026-09-11 from Spanish, per user request).
 
 ## Out of scope
-- Construir o entrenar modelos de ML de forma profunda (eso corresponde a certificaciones más avanzadas como AWS Certified Machine Learning Engineer – Associate).
-- Programación extensa de pipelines de SageMaker; solo se requiere reconocer el servicio y su propósito a nivel "practitioner".
-- Detalles de arquitectura de AWS no relacionados con IA/ML (redes, VPCs avanzadas, etc.) salvo lo mínimo necesario para el dominio de seguridad/gobernanza del examen.
+- Building or deeply training ML models (that belongs to more advanced certifications like AWS Certified Machine Learning Engineer – Associate).
+- Extensive SageMaker pipeline coding; only recognizing the service and its purpose at "practitioner" level is required.
+- AWS architecture details unrelated to AI/ML (advanced networking, VPCs, etc.) beyond the minimum needed for the exam's security/governance domain.

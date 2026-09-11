@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lesson 1 — What are AI, ML, and Deep Learning?</title>
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+
+<p class="kicker">Lesson 1 · Domain 1 — Fundamentals of AI and ML (20% of the exam)</p>
+<h1>What are AI, ML, and Deep Learning?</h1>
+
+<p>
+  This certification is a job requirement, so let's go straight to what the
+  exam actually asks: <strong>the basic terminology that shows up in almost
+  every other question</strong>. If these four terms are solid today, the
+  rest of the course moves much faster.
+</p>
+
+<div class="card">
+  <strong>Artificial Intelligence (AI)</strong><br>
+  Any system built to make a machine imitate tasks that normally require
+  human reasoning (recognizing an image, translating text, playing chess).
+
+  <hr class="rule" style="margin:1rem 0;">
+
+  <strong>Machine Learning (ML)</strong> — a subset of AI<br>
+  Instead of hand-coding rules, you show the system many examples (data)
+  and it learns the pattern on its own.
+
+  <hr class="rule" style="margin:1rem 0;">
+
+  <strong>Deep Learning (DL)</strong> — a subset of ML<br>
+  ML that uses neural networks with many layers. It's what made large-scale
+  image recognition and natural language possible.
+
+  <hr class="rule" style="margin:1rem 0;">
+
+  <strong>Generative AI (GenAI)</strong> — a subset of Deep Learning<br>
+  Deep learning models (called <em>foundation models</em>) trained on huge
+  amounts of data, able to <em>generate</em> new content: text, images,
+  code. Amazon Bedrock is AWS's service for using them.
+</div>
+
+<p>
+  It's a Russian nesting doll: each term sits <em>inside</em> the previous one.
+</p>
+
+<div class="card" style="font-family:-apple-system,'Segoe UI',sans-serif; text-align:center;">
+  <div style="border:2px solid var(--accent); border-radius:12px; padding:2rem 1rem;">
+    AI
+    <div style="border:2px solid var(--accent); border-radius:10px; padding:1.75rem 1rem; margin-top:0.75rem;">
+      ML
+      <div style="border:2px solid var(--accent); border-radius:8px; padding:1.5rem 1rem; margin-top:0.75rem;">
+        Deep Learning
+        <div style="border:2px solid var(--accent); border-radius:6px; padding:1rem; margin-top:0.75rem; background:var(--accent-soft);">
+          Generative AI
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p class="callout">
+  <strong>Why this matters for the exam:</strong> many Domain 1 questions
+  are variations of "is this AI, ML, DL, or GenAI?". If you know the order
+  of the nesting doll, you can eliminate options even without knowing the
+  technical detail.
+</p>
+
+<h2>Primary source</h2>
+<p class="source">
+  To go deeper with examples and console demos, watch the intro segment of
+  <a href="https://www.youtube.com/watch?v=WZeZZ8_W-M4">"AWS Certified AI Practitioner (AIF-C01) – Full Course" (Andrew Brown / ExamPro, freeCodeCamp)</a>,
+  or the Fundamentals of AI/ML module of the
+  <a href="https://skillbuilder.aws/learning-plan/G8ENMJ5QBE/aws-artificial-intelligence-practitioner-learning-plan/SU2A1EJM1A">AWS Skill Builder Learning Plan</a>
+  (both free). The exact scope of this domain is defined in the
+  <a href="https://docs.aws.amazon.com/pdfs/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.pdf">official Exam Guide</a>.
+</p>
+
+<h2>Practice retrieval (don't scroll back up before answering)</h2>
+
+<div class="quiz" data-correct-msg="Correct: Deep Learning lives inside Machine Learning." data-incorrect-msg="Not quite. Look at the nesting doll above again: what's further inside?">
+  <div class="question">1. Deep Learning is a subset of:</div>
+  <label><input type="radio" name="q1" data-correct="true"> Is a subset of Machine Learning</label>
+  <label><input type="radio" name="q1" data-correct="false"> Is a subset of Cloud Computing</label>
+  <label><input type="radio" name="q1" data-correct="false"> Is a subset of Generative AI</label>
+  <label><input type="radio" name="q1" data-correct="false"> Is a subset of AWS Bedrock</label>
+  <button type="button" class="quiz-submit">Check</button>
+  <div class="feedback"></div>
+</div>
+
+<div class="quiz" data-correct-msg="Correct: Bedrock is AWS's service for foundation models / Generative AI." data-incorrect-msg="Not quite. Think about which of these four is used to generate text or images with a foundation model.">
+  <div class="question">2. Which of these is an example of Generative AI on AWS?</div>
+  <label><input type="radio" name="q2" data-correct="false"> Amazon EC2</label>
+  <label><input type="radio" name="q2" data-correct="true"> Amazon Bedrock</label>
+  <label><input type="radio" name="q2" data-correct="false"> Amazon S3</label>
+  <label><input type="radio" name="q2" data-correct="false"> Amazon IAM</label>
+  <button type="button" class="quiz-submit">Check</button>
+  <div class="feedback"></div>
+</div>
+
+<p class="callout">
+  <strong>Something unclear?</strong> Ask me directly in the conversation —
+  I'm your teacher throughout this process, not just the one writing the
+  lessons. Better to resolve it now than carry it into lesson 2.
+</p>
+
+<nav class="lesson-nav">
+  <a href="../reference/domain-map.html">← Reference: map of the 5 domains</a>
+  <span>Lesson 2: coming soon</span>
+</nav>
+
+<script src="../assets/quiz.js"></script>
+</body>
+</html>
