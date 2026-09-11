@@ -1,0 +1,132 @@
+/* Shared stylesheet for the AWS AIF-C01 teaching workspace.
+   Tufte-inspired: serif body text, generous whitespace, minimal chrome. */
+
+:root {
+  --ink: #1a1a1a;
+  --paper: #fdfbf7;
+  --muted: #6b6558;
+  --rule: #ddd6c8;
+  --accent: #a4501f;
+  --accent-soft: #f4e9dd;
+  --good: #2f6b3a;
+  --bad: #a3312a;
+  --max-width: 40rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #ece7dd;
+    --paper: #1c1a16;
+    --muted: #a39c8b;
+    --rule: #3a362c;
+    --accent: #e08a4f;
+    --accent-soft: #332a20;
+    --good: #6fbf7a;
+    --bad: #e2837c;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.6;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 5rem;
+  font-size: 1.05rem;
+}
+
+h1, h2, h3 {
+  font-family: inherit;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+h1 { font-size: 1.9rem; margin-bottom: 0.25rem; }
+.kicker {
+  font-family: -apple-system, "Segoe UI", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+p, li { max-width: 38ch; }
+.wide p, .wide li { max-width: none; }
+
+a { color: var(--accent); }
+
+.card {
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+  background: color-mix(in srgb, var(--paper) 92%, var(--accent) 8%);
+}
+
+.callout {
+  border-left: 3px solid var(--accent);
+  padding: 0.25rem 1rem;
+  margin: 1.5rem 0;
+  background: var(--accent-soft);
+}
+
+.source {
+  font-family: -apple-system, "Segoe UI", sans-serif;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+hr.rule {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 2.5rem 0;
+}
+
+nav.lesson-nav {
+  font-family: -apple-system, "Segoe UI", sans-serif;
+  font-size: 0.85rem;
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  margin-top: 3rem;
+}
+
+/* Quiz widget (see quiz.js) */
+.quiz {
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+}
+.quiz .question { font-weight: 600; margin-bottom: 0.75rem; }
+.quiz label {
+  display: block;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.quiz label:hover { background: var(--accent-soft); }
+.quiz button {
+  font-family: inherit;
+  font-size: 0.95rem;
+  margin-top: 0.75rem;
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: var(--paper);
+  cursor: pointer;
+}
+.quiz .feedback { margin-top: 0.75rem; font-weight: 600; display: none; }
+.quiz .feedback.correct { color: var(--good); }
+.quiz .feedback.incorrect { color: var(--bad); }
+
+@media print {
+  body { max-width: none; font-size: 11pt; }
+  .quiz button, nav.lesson-nav { display: none; }
+}

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lección 1 — ¿Qué son IA, ML y Deep Learning?</title>
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+
+<p class="kicker">Lección 1 · Dominio 1 — Fundamentos de IA y ML (20% del examen)</p>
+<h1>¿Qué son la IA, el ML y el Deep Learning?</h1>
+
+<p>
+  Esta certificación es un requisito de tu trabajo, así que vamos directo a lo que
+  el examen realmente pregunta: <strong>la terminología básica que aparece en casi
+  todas las demás preguntas</strong>. Si estos cuatro términos quedan firmes hoy,
+  el resto del curso avanza mucho más rápido.
+</p>
+
+<div class="card">
+  <strong>Inteligencia Artificial (IA)</strong><br>
+  Cualquier sistema construido para que una máquina imite tareas que
+  normalmente requieren razonamiento humano (reconocer una imagen, traducir un
+  texto, jugar al ajedrez).
+
+  <hr class="rule" style="margin:1rem 0;">
+
+  <strong>Machine Learning (ML)</strong> — un subconjunto de la IA<br>
+  En vez de programar reglas a mano, le mostrás al sistema muchos ejemplos
+  (datos) y el sistema aprende el patrón por sí mismo.
+
+  <hr class="rule" style="margin:1rem 0;">
+
+  <strong>Deep Learning (DL)</strong> — un subconjunto del ML<br>
+  ML que usa redes neuronales con muchas capas. Es lo que hizo posible el
+  reconocimiento de imágenes y el lenguaje natural a gran escala.
+
+  <hr class="rule" style="margin:1rem 0;">
+
+  <strong>IA Generativa (GenAI)</strong> — un subconjunto del Deep Learning<br>
+  Modelos de deep learning (llamados <em>modelos fundacionales</em>) entrenados
+  con enormes cantidades de datos, capaces de <em>generar</em> contenido nuevo:
+  texto, imágenes, código. Amazon Bedrock es el servicio de AWS para usarlos.
+</div>
+
+<p>
+  Es una muñeca rusa: cada término está <em>adentro</em> del anterior.
+</p>
+
+<div class="card" style="font-family:-apple-system,'Segoe UI',sans-serif; text-align:center;">
+  <div style="border:2px solid var(--accent); border-radius:12px; padding:2rem 1rem;">
+    IA
+    <div style="border:2px solid var(--accent); border-radius:10px; padding:1.75rem 1rem; margin-top:0.75rem;">
+      ML
+      <div style="border:2px solid var(--accent); border-radius:8px; padding:1.5rem 1rem; margin-top:0.75rem;">
+        Deep Learning
+        <div style="border:2px solid var(--accent); border-radius:6px; padding:1rem; margin-top:0.75rem; background:var(--accent-soft);">
+          IA Generativa
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p class="callout">
+  <strong>Por qué importa para el examen:</strong> muchas preguntas del
+  Dominio 1 son variaciones de "¿esto es IA, ML, DL o GenAI?". Si sabés el
+  orden de la muñeca rusa, podés descartar opciones aunque no conozcas el
+  detalle técnico.
+</p>
+
+<h2>Fuente principal</h2>
+<p class="source">
+  Para profundizar con ejemplos y demos en consola, mirá el segmento de
+  introducción de
+  <a href="https://www.youtube.com/watch?v=WZeZZ8_W-M4">"AWS Certified AI Practitioner (AIF-C01) – Full Course" (Andrew Brown / ExamPro, freeCodeCamp)</a>,
+  o el módulo de Fundamentos de IA/ML del
+  <a href="https://skillbuilder.aws/learning-plan/G8ENMJ5QBE/aws-artificial-intelligence-practitioner-learning-plan/SU2A1EJM1A">AWS Skill Builder Learning Plan</a>
+  (ambos gratuitos). El alcance exacto de este dominio está definido en el
+  <a href="https://docs.aws.amazon.com/pdfs/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.pdf">Exam Guide oficial</a>.
+</p>
+
+<h2>Practicá recordando (no releas antes de responder)</h2>
+
+<div class="quiz" data-correct-msg="Correcto: Deep Learning vive dentro de Machine Learning." data-incorrect-msg="No. Volvé a mirar la muñeca rusa de arriba: ¿qué está más adentro?">
+  <div class="question">1. Deep Learning es un subconjunto de:</div>
+  <label><input type="radio" name="q1" data-correct="true"> Es subconjunto de Machine Learning</label>
+  <label><input type="radio" name="q1" data-correct="false"> Es subconjunto de la Nube</label>
+  <label><input type="radio" name="q1" data-correct="false"> Es subconjunto de IA Generativa</label>
+  <label><input type="radio" name="q1" data-correct="false"> Es subconjunto de AWS Bedrock</label>
+  <button type="button" class="quiz-submit">Comprobar</button>
+  <div class="feedback"></div>
+</div>
+
+<div class="quiz" data-correct-msg="Correcto: Bedrock es el servicio de AWS para modelos fundacionales de IA Generativa." data-incorrect-msg="No. Pensá cuál de estos cuatro sirve para generar texto o imágenes con un modelo fundacional.">
+  <div class="question">2. ¿Cuál de estos es un ejemplo de IA Generativa en AWS?</div>
+  <label><input type="radio" name="q2" data-correct="false"> Amazon EC2</label>
+  <label><input type="radio" name="q2" data-correct="true"> Amazon Bedrock</label>
+  <label><input type="radio" name="q2" data-correct="false"> Amazon S3</label>
+  <label><input type="radio" name="q2" data-correct="false"> Amazon IAM</label>
+  <button type="button" class="quiz-submit">Comprobar</button>
+  <div class="feedback"></div>
+</div>
+
+<p class="callout">
+  <strong>¿Algo no quedó claro?</strong> Preguntame directamente en la
+  conversación — soy tu profesor en este proceso, no solo quien escribe las
+  lecciones. Es mejor resolver la duda ahora que arrastrarla a la lección 2.
+</p>
+
+<nav class="lesson-nav">
+  <a href="../reference/domain-map.html">← Referencia: mapa de los 5 dominios</a>
+  <span>Lección 2: próximamente</span>
+</nav>
+
+<script src="../assets/quiz.js"></script>
+</body>
+</html>
