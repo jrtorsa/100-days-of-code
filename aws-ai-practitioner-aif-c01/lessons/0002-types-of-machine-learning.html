@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lesson 2 — Types of Machine Learning</title>
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+
+<p class="kicker">Lesson 2 · Domain 1 — Fundamentals of AI and ML (20% of the exam)</p>
+<h1>Types of Machine Learning</h1>
+
+<p>
+  In <a href="0001-what-is-ai-ml-and-deep-learning.html">Lesson 1</a> you learned
+  that ML learns patterns from data instead of hand-coded rules. Today's
+  question: <strong>what kind of data, and what kind of "learning," exactly?</strong>
+  There are three answers, and the exam constantly tests whether you can
+  tell them apart from a short scenario.
+</p>
+
+<div class="card">
+  <strong>Supervised learning</strong><br>
+  You give the model labeled data: inputs paired with the correct answer.
+  It learns to predict the label for new, unseen inputs.
+  <br><em>Example: training on emails already marked "spam" / "not spam" to
+  classify new emails.</em>
+
+  <hr class="rule" style="margin:1rem 0;">
+
+  <strong>Unsupervised learning</strong><br>
+  You give the model data with <em>no</em> labels. It finds structure or
+  groupings on its own — nobody told it what the "right" grouping was.
+  <br><em>Example: grouping customers into segments based on purchase
+  behavior, without predefined segment names.</em>
+
+  <hr class="rule" style="margin:1rem 0;">
+
+  <strong>Reinforcement learning</strong><br>
+  There's no fixed dataset at all. An agent takes actions in an
+  environment and gets a reward or penalty, and learns a strategy that
+  maximizes reward over time.
+  <br><em>Example: AWS DeepRacer learning to drive a track faster by being
+  rewarded for staying on the track.</em>
+</div>
+
+<p>
+  Full comparison table (data needed, goal, example) is saved as a
+  standalone reference — see below.
+</p>
+
+<div class="callout">
+  <strong>Why this matters for the exam:</strong> a typical question
+  describes a scenario ("a model recommends products based on browsing
+  history with no predefined categories...") and asks which type of
+  learning it is. You won't be asked to name algorithms — just to
+  recognize the pattern: labeled answers, no labels, or a reward signal.
+</div>
+
+<h2>Primary source</h2>
+<p class="source">
+  Watch the "Types of Machine Learning" section of
+  <a href="https://www.youtube.com/watch?v=WZeZZ8_W-M4">"AWS Certified AI Practitioner (AIF-C01) – Full Course" (Andrew Brown / ExamPro, freeCodeCamp)</a>,
+  or the equivalent unit in the
+  <a href="https://skillbuilder.aws/learning-plan/G8ENMJ5QBE/aws-artificial-intelligence-practitioner-learning-plan/SU2A1EJM1A">AWS Skill Builder Learning Plan</a>.
+  Scope confirmed against the
+  <a href="https://docs.aws.amazon.com/pdfs/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.pdf">official Exam Guide</a>, Domain 1.
+</p>
+
+<h2>Practice retrieval (don't scroll back up before answering)</h2>
+
+<div class="quiz" data-correct-msg="Correct: no labels were given — the model found the grouping itself." data-incorrect-msg="Not quite. Ask: were correct answers given up front, or did the model find structure on its own?">
+  <div class="question">1. A model groups customers into segments without ever being told what the segments are. This is:</div>
+  <label><input type="radio" name="q1" data-correct="false"> This is supervised learning</label>
+  <label><input type="radio" name="q1" data-correct="true"> This is unsupervised learning</label>
+  <label><input type="radio" name="q1" data-correct="false"> This is reinforcement learning</label>
+  <label><input type="radio" name="q1" data-correct="false"> This is generative learning</label>
+  <button type="button" class="quiz-submit">Check</button>
+  <div class="feedback"></div>
+</div>
+
+<div class="quiz" data-correct-msg="Correct: a reward signal with trial and error is the signature of reinforcement learning." data-incorrect-msg="Not quite. Look for the reward signal — that's the giveaway for one specific type.">
+  <div class="question">2. A robot learns to walk by getting a reward each time it doesn't fall. This is:</div>
+  <label><input type="radio" name="q2" data-correct="false"> This is supervised learning</label>
+  <label><input type="radio" name="q2" data-correct="false"> This is unsupervised learning</label>
+  <label><input type="radio" name="q2" data-correct="true"> This is reinforcement learning</label>
+  <label><input type="radio" name="q2" data-correct="false"> This is generative learning</label>
+  <button type="button" class="quiz-submit">Check</button>
+  <div class="feedback"></div>
+</div>
+
+<p class="callout">
+  <strong>Something unclear?</strong> Ask me directly in the conversation —
+  I'm your teacher throughout this process, not just the one writing the
+  lessons.
+</p>
+
+<nav class="lesson-nav">
+  <a href="../reference/ml-learning-types.html">Reference: the 3 ML types, compared →</a>
+  <span>Lesson 3: coming soon</span>
+</nav>
+
+<script src="../assets/quiz.js"></script>
+</body>
+</html>
