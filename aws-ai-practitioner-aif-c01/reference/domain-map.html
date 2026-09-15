@@ -34,6 +34,12 @@ p, li { max-width: 42ch; }
 a { color: var(--accent); }
 .callout { border-left: 3px solid var(--accent); padding: 0.25rem 1rem; margin: 1.5rem 0; background: var(--accent-soft); }
 .source { font-family: -apple-system, "Segoe UI", sans-serif; font-size: 0.85rem; color: var(--muted); }
+details.flashcard { border: 1px solid var(--rule); border-radius: 6px; padding: 0.75rem 1rem; margin: 0.75rem 0; }
+details.flashcard summary { cursor: pointer; font-weight: 600; list-style: none; max-width: none; }
+details.flashcard summary::-webkit-details-marker { display: none; }
+details.flashcard summary::before { content: "▸ "; color: var(--accent); }
+details.flashcard[open] summary::before { content: "▾ "; }
+details.flashcard .answer { margin-top: 0.6rem; padding-top: 0.6rem; border-top: 1px dashed var(--rule); max-width: none; }
 </style>
 </head>
 <body class="wide">
@@ -85,6 +91,34 @@ a { color: var(--accent); }
   <strong>Key exam facts:</strong> 65 questions (50 scored, 15 unscored), 90 minutes,
   scaled score 100–1000, passing score is <strong>700</strong>.
 </div>
+
+<h2>Test yourself: which domain is this?</h2>
+<p class="source">Click a scenario to reveal the domain — try to answer before you click.</p>
+
+<details class="flashcard">
+  <summary>A question describes a system and asks whether it's "AI, ML, or Deep Learning."</summary>
+  <div class="answer"><strong>Domain 1</strong> — Fundamentals of AI and ML. Basic terminology questions live here.</div>
+</details>
+
+<details class="flashcard">
+  <summary>A question asks what a "hallucination" is and why a chatbot might confidently state something false.</summary>
+  <div class="answer"><strong>Domain 2</strong> — Fundamentals of Generative AI. Risks specific to foundation models live here.</div>
+</details>
+
+<details class="flashcard">
+  <summary>A question describes a use case and asks whether to use Bedrock, SageMaker, or Rekognition.</summary>
+  <div class="answer"><strong>Domain 3</strong> — Applications of Foundation Models. Service-selection questions live here — the biggest domain (28%).</div>
+</details>
+
+<details class="flashcard">
+  <summary>A question asks how to reduce bias in a hiring model's predictions.</summary>
+  <div class="answer"><strong>Domain 4</strong> — Guidelines for Responsible AI. Fairness, bias, explainability live here.</div>
+</details>
+
+<details class="flashcard">
+  <summary>A question asks which AWS service restricts who can invoke a deployed model's API.</summary>
+  <div class="answer"><strong>Domain 5</strong> — Security, Compliance, and Governance for AI Solutions. IAM, encryption, governance live here.</div>
+</details>
 
 <p class="source" style="margin-top:2rem;">
   Back to <a href="../lessons/0001-what-is-ai-ml-and-deep-learning.html">Lesson 1</a>.

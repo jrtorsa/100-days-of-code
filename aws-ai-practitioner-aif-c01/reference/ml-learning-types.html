@@ -34,6 +34,12 @@ p, li { max-width: 42ch; }
 a { color: var(--accent); }
 .callout { border-left: 3px solid var(--accent); padding: 0.25rem 1rem; margin: 1.5rem 0; background: var(--accent-soft); }
 .source { font-family: -apple-system, "Segoe UI", sans-serif; font-size: 0.85rem; color: var(--muted); }
+details.flashcard { border: 1px solid var(--rule); border-radius: 6px; padding: 0.75rem 1rem; margin: 0.75rem 0; }
+details.flashcard summary { cursor: pointer; font-weight: 600; list-style: none; max-width: none; }
+details.flashcard summary::-webkit-details-marker { display: none; }
+details.flashcard summary::before { content: "▸ "; color: var(--accent); }
+details.flashcard[open] summary::before { content: "▾ "; }
+details.flashcard .answer { margin-top: 0.6rem; padding-top: 0.6rem; border-top: 1px dashed var(--rule); max-width: none; }
 </style>
 </head>
 <body class="wide">
@@ -80,6 +86,24 @@ a { color: var(--accent); }
   "No answers, just find structure" → unsupervised. "Trial, error, and a
   reward" → reinforcement.
 </div>
+
+<h2>Test yourself: which type is this?</h2>
+<p class="source">Click a scenario to reveal the type — try to answer before you click.</p>
+
+<details class="flashcard">
+  <summary>A streaming service groups movies by viewing patterns, with no predefined category names.</summary>
+  <div class="answer"><strong>Unsupervised learning</strong> — no labels were given; the model found the grouping itself.</div>
+</details>
+
+<details class="flashcard">
+  <summary>A driving simulator learns to stay in its lane, getting a penalty every time it drifts out.</summary>
+  <div class="answer"><strong>Reinforcement learning</strong> — no fixed dataset, just a reward/penalty signal over time.</div>
+</details>
+
+<details class="flashcard">
+  <summary>A hospital has thousands of past X-rays already labeled "pneumonia" or "no pneumonia."</summary>
+  <div class="answer"><strong>Supervised learning</strong> — every example already comes with the correct answer attached.</div>
+</details>
 
 <p class="source" style="margin-top:2rem;">
   Back to <a href="../lessons/0002-types-of-machine-learning.html">Lesson 2</a> ·

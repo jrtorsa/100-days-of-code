@@ -126,6 +126,24 @@ nav.lesson-nav {
 .quiz .feedback.correct { color: var(--good); }
 .quiz .feedback.incorrect { color: var(--bad); }
 
+/* Flashcards: zero-JS self-test disclosure widgets for reference sheets */
+details.flashcard {
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  margin: 0.75rem 0;
+}
+details.flashcard summary { cursor: pointer; font-weight: 600; list-style: none; max-width: none; }
+details.flashcard summary::-webkit-details-marker { display: none; }
+details.flashcard summary::before { content: "▸ "; color: var(--accent); }
+details.flashcard[open] summary::before { content: "▾ "; }
+details.flashcard .answer {
+  margin-top: 0.6rem;
+  padding-top: 0.6rem;
+  border-top: 1px dashed var(--rule);
+  max-width: none;
+}
+
 @media print {
   body { max-width: none; font-size: 11pt; }
   .quiz button, nav.lesson-nav { display: none; }
