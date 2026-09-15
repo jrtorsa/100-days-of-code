@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lesson 3 — The Machine Learning Lifecycle</title>
+<link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+
+<p class="kicker">Lesson 3 · Domain 1 — Fundamentals of AI and ML (20% of the exam)</p>
+<h1>The Machine Learning Lifecycle</h1>
+
+<p>
+  You now know <a href="0001-what-is-ai-ml-and-deep-learning.html">what ML is</a>
+  and <a href="0002-types-of-machine-learning.html">how it learns</a>. This
+  lesson closes out Domain 1: the stages a model goes through from raw data
+  to a working prediction in production — and why it doesn't stop there.
+</p>
+
+<div class="card">
+  <strong>1. Data collection &amp; preparation</strong><br>
+  Gather relevant data and clean it up (missing values, duplicates,
+  inconsistent formats). Garbage in, garbage out — this stage usually takes
+  the most effort.
+
+  <hr class="rule" style="margin:1rem 0;">
+
+  <strong>2. Model training</strong><br>
+  The algorithm looks at the training data and adjusts itself to capture
+  the pattern in it.
+
+  <hr class="rule" style="margin:1rem 0;">
+
+  <strong>3. Evaluation</strong><br>
+  Test the trained model on data it has <em>never seen</em>, to see if it
+  actually generalizes or just memorized the training set.
+
+  <hr class="rule" style="margin:1rem 0;">
+
+  <strong>4. Deployment</strong><br>
+  The model goes live, making real predictions on real, incoming data.
+
+  <hr class="rule" style="margin:1rem 0;">
+
+  <strong>5. Monitoring</strong><br>
+  Keep watching accuracy over time. Real-world data shifts — that's called
+  <strong>drift</strong> — and a model that was accurate at launch can quietly
+  get worse. Monitoring is what catches that, and feeds back into stage 1.
+</div>
+
+<p>
+  It's a loop, not a line: <a href="../reference/ml-lifecycle.html">see the full
+  diagram in the reference sheet</a>.
+</p>
+
+<div class="callout">
+  <strong>Why this matters for the exam:</strong> expect questions that
+  describe a stage ("the team tests the model on a holdout set it never
+  trained on") and ask you to name it, or that ask why a deployed model's
+  accuracy dropped months later (answer: drift → needs monitoring/retraining).
+</div>
+
+<h2>Primary source</h2>
+<p class="source">
+  Watch the "ML Development Lifecycle" section of
+  <a href="https://www.youtube.com/watch?v=WZeZZ8_W-M4">"AWS Certified AI Practitioner (AIF-C01) – Full Course" (Andrew Brown / ExamPro, freeCodeCamp)</a>,
+  or the equivalent unit in the
+  <a href="https://skillbuilder.aws/learning-plan/G8ENMJ5QBE/aws-artificial-intelligence-practitioner-learning-plan/SU2A1EJM1A">AWS Skill Builder Learning Plan</a>.
+  Scope confirmed against the
+  <a href="https://docs.aws.amazon.com/pdfs/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.pdf">official Exam Guide</a>, Domain 1.
+</p>
+
+<h2>Practice retrieval (don't scroll back up before answering)</h2>
+
+<div class="quiz" data-correct-msg="Correct: evaluation is specifically about performance on unseen data." data-incorrect-msg="Not quite. Which stage is specifically about testing on data the model hasn't trained on?">
+  <div class="question">1. Which stage checks how well the model performs on data it has never seen before?</div>
+  <label><input type="radio" name="q1" data-correct="false"> The training stage</label>
+  <label><input type="radio" name="q1" data-correct="true"> The evaluation stage</label>
+  <label><input type="radio" name="q1" data-correct="false"> The deployment stage</label>
+  <label><input type="radio" name="q1" data-correct="false"> The monitoring stage</label>
+  <button type="button" class="quiz-submit">Check</button>
+  <div class="feedback"></div>
+</div>
+
+<div class="quiz" data-correct-msg="Correct: this is called drift, and it's exactly what monitoring is meant to catch." data-incorrect-msg="Not quite. Think about what actually changes in the real world after launch, not inside the model itself.">
+  <div class="question">2. A model was accurate at launch but its accuracy drops six months later. Why is ongoing monitoring needed?</div>
+  <label><input type="radio" name="q2" data-correct="true"> Because data patterns can change</label>
+  <label><input type="radio" name="q2" data-correct="false"> Because training data gets deleted</label>
+  <label><input type="radio" name="q2" data-correct="false"> Because model labels get renamed</label>
+  <label><input type="radio" name="q2" data-correct="false"> Because cloud servers become slower</label>
+  <button type="button" class="quiz-submit">Check</button>
+  <div class="feedback"></div>
+</div>
+
+<p class="callout">
+  <strong>Something unclear?</strong> Ask me directly in the conversation —
+  I'm your teacher throughout this process, not just the one writing the
+  lessons.
+</p>
+
+<p class="callout">
+  <strong>Domain 1 complete.</strong> You've covered all of Domain 1 —
+  Fundamentals of AI and ML (20% of the exam): terminology, types of
+  learning, and the lifecycle. Next up: Domain 2, Fundamentals of
+  Generative AI (24% of the exam).
+</p>
+
+<nav class="lesson-nav">
+  <a href="../reference/ml-lifecycle.html">← Reference: the ML lifecycle diagram</a>
+  <span>Lesson 4: coming soon</span>
+</nav>
+
+<script src="../assets/quiz.js"></script>
+</body>
+</html>
