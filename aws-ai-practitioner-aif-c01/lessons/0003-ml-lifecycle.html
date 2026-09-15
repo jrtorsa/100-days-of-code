@@ -4,7 +4,64 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Lesson 3 — The Machine Learning Lifecycle</title>
-<link rel="stylesheet" href="../assets/style.css" />
+<style>
+:root {
+  --ink: #1a1a1a; --paper: #fdfbf7; --muted: #6b6558; --rule: #ddd6c8;
+  --accent: #a4501f; --accent-soft: #f4e9dd; --good: #2f6b3a; --bad: #a3312a;
+  --max-width: 42rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #ece7dd; --paper: #1c1a16; --muted: #a39c8b; --rule: #3a362c;
+    --accent: #e08a4f; --accent-soft: #332a20; --good: #6fbf7a; --bad: #e2837c;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.6; max-width: var(--max-width); margin: 0 auto;
+  padding: 2.5rem 1.25rem 5rem; font-size: 1.05rem;
+}
+h1, h2, h3 { font-family: inherit; line-height: 1.25; color: var(--ink); }
+h1 { font-size: 1.9rem; margin-bottom: 0.25rem; }
+.kicker {
+  font-family: -apple-system, "Segoe UI", sans-serif; text-transform: uppercase;
+  letter-spacing: 0.08em; font-size: 0.75rem; color: var(--accent); font-weight: 600;
+}
+p, li { max-width: 42ch; }
+.wide p, .wide li { max-width: none; }
+a { color: var(--accent); }
+.card {
+  border: 1px solid var(--rule); border-radius: 6px; padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0; background: color-mix(in srgb, var(--paper) 92%, var(--accent) 8%);
+}
+.callout {
+  border-left: 3px solid var(--accent); padding: 0.25rem 1rem; margin: 1.5rem 0;
+  background: var(--accent-soft);
+}
+.glossary dt { font-weight: 600; margin-top: 0.9rem; }
+.glossary dd { margin-left: 0; max-width: 42ch; }
+.source { font-family: -apple-system, "Segoe UI", sans-serif; font-size: 0.85rem; color: var(--muted); }
+hr.rule { border: none; border-top: 1px solid var(--rule); margin: 2.5rem 0; }
+nav.lesson-nav {
+  font-family: -apple-system, "Segoe UI", sans-serif; font-size: 0.85rem;
+  display: flex; justify-content: space-between; color: var(--muted); margin-top: 3rem; gap: 1rem; flex-wrap: wrap;
+}
+.quiz { border: 1px solid var(--rule); border-radius: 6px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+.quiz .question { font-weight: 600; margin-bottom: 0.75rem; max-width: none; }
+.quiz label { display: block; padding: 0.4rem 0.6rem; border-radius: 4px; cursor: pointer; max-width: none; }
+.quiz label:hover { background: var(--accent-soft); }
+.quiz button {
+  font-family: inherit; font-size: 0.95rem; margin-top: 0.75rem; padding: 0.4rem 1rem;
+  border-radius: 4px; border: 1px solid var(--accent); background: var(--accent); color: var(--paper); cursor: pointer;
+}
+.quiz .feedback { margin-top: 0.75rem; font-weight: 600; display: none; max-width: none; }
+.quiz .feedback.correct { color: var(--good); }
+.quiz .feedback.incorrect { color: var(--bad); }
+.quiz .explain { margin-top: 0.5rem; font-weight: 400; color: var(--muted); font-size: 0.95rem; }
+@media print { body { max-width: none; font-size: 11pt; } .quiz button, nav.lesson-nav { display: none; } }
+</style>
 </head>
 <body>
 
@@ -14,51 +71,76 @@
 <p>
   You now know <a href="0001-what-is-ai-ml-and-deep-learning.html">what ML is</a>
   and <a href="0002-types-of-machine-learning.html">how it learns</a>. This
-  lesson closes out Domain 1: the stages a model goes through from raw data
-  to a working prediction in production — and why it doesn't stop there.
+  lesson goes slower than last time and defines every piece of jargon as it
+  shows up, because the lifecycle is really just five plain-English ideas
+  wearing exam-vocabulary costumes.
 </p>
 
+<h2>The story, in one paragraph</h2>
+<p class="wide">
+  Imagine you want a model that predicts whether a customer will cancel
+  their subscription. You start with a pile of past customer records where
+  you already know who cancelled — that pile is your <strong>data</strong>.
+  You clean it up, then split it into two stacks: a big stack to teach the
+  model, and a small stack you hide away and don't show it. You show the
+  model the big stack and let it find the pattern — that's
+  <strong>training</strong>. Then you quiz it on the hidden stack it never
+  saw — that's <strong>evaluation</strong>. If it does well, you let it
+  start predicting on brand-new, real customers — that's
+  <strong>deployment</strong>. Months later, customer behavior shifts (say,
+  a new competitor shows up) and the model's guesses get worse even though
+  nothing about the model itself changed — you only find out because you
+  kept <strong>monitoring</strong> it.
+</p>
+
+<h2>The jargon, defined</h2>
+<dl class="glossary">
+  <dt>Training data</dt>
+  <dd>The big stack: past examples the model is allowed to learn from, including the correct answer for each one (e.g. "this customer did cancel").</dd>
+
+  <dt>Test data (a.k.a. holdout data)</dt>
+  <dd>The small, hidden stack: examples the model never saw during training, used only to check if it actually learned the pattern or just memorized the training stack.</dd>
+
+  <dt>Overfitting</dt>
+  <dd>When a model memorizes the training stack so closely (including its noise and quirks) that it does great on training data but poorly on the hidden test data — it learned the exceptions instead of the pattern.</dd>
+
+  <dt>Inference</dt>
+  <dd>The act of a trained, deployed model making an actual prediction on new, real-world input. "Training" teaches it; "inference" is it doing its job afterward.</dd>
+
+  <dt>Drift</dt>
+  <dd>When the real world quietly stops looking like the training data (new customer behavior, new competitor, new season), so a model that was accurate at launch becomes less accurate over time — without anyone touching the model itself.</dd>
+</dl>
+
+<h2>The five stages</h2>
 <div class="card">
   <strong>1. Data collection &amp; preparation</strong><br>
-  Gather relevant data and clean it up (missing values, duplicates,
-  inconsistent formats). Garbage in, garbage out — this stage usually takes
-  the most effort.
-
+  Gather the training data and clean it (missing values, duplicates,
+  inconsistent formats). This is usually the most time-consuming stage.
   <hr class="rule" style="margin:1rem 0;">
-
   <strong>2. Model training</strong><br>
-  The algorithm looks at the training data and adjusts itself to capture
+  The algorithm studies the training data and adjusts itself to capture
   the pattern in it.
-
   <hr class="rule" style="margin:1rem 0;">
-
   <strong>3. Evaluation</strong><br>
-  Test the trained model on data it has <em>never seen</em>, to see if it
-  actually generalizes or just memorized the training set.
-
+  Test the trained model on the hidden test data, to catch overfitting
+  before it ever reaches a real customer.
   <hr class="rule" style="margin:1rem 0;">
-
   <strong>4. Deployment</strong><br>
-  The model goes live, making real predictions on real, incoming data.
-
+  The model goes live and starts doing inference on real, incoming data.
   <hr class="rule" style="margin:1rem 0;">
-
   <strong>5. Monitoring</strong><br>
-  Keep watching accuracy over time. Real-world data shifts — that's called
-  <strong>drift</strong> — and a model that was accurate at launch can quietly
-  get worse. Monitoring is what catches that, and feeds back into stage 1.
+  Keep watching accuracy over time to catch drift, and loop back to stage 1
+  (fresh data, retraining) when it's caught.
 </div>
 
-<p>
-  It's a loop, not a line: <a href="../reference/ml-lifecycle.html">see the full
-  diagram in the reference sheet</a>.
-</p>
+<p>See the full diagram in the <a href="../reference/ml-lifecycle.html">reference sheet</a>.</p>
 
 <div class="callout">
-  <strong>Why this matters for the exam:</strong> expect questions that
-  describe a stage ("the team tests the model on a holdout set it never
-  trained on") and ask you to name it, or that ask why a deployed model's
-  accuracy dropped months later (answer: drift → needs monitoring/retraining).
+  <strong>Why this matters for the exam:</strong> AIF-C01 questions rarely
+  say "name the stage." They describe a situation ("a team holds back 20%
+  of labeled data to check the model afterward") and expect you to
+  recognize which stage or concept that is — exactly the skill the
+  scenarios below practice.
 </div>
 
 <h2>Primary source</h2>
@@ -71,32 +153,45 @@
   <a href="https://docs.aws.amazon.com/pdfs/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.pdf">official Exam Guide</a>, Domain 1.
 </p>
 
-<h2>Practice retrieval (don't scroll back up before answering)</h2>
+<h2>Practice with exam-style scenarios</h2>
 
-<div class="quiz" data-correct-msg="Correct: evaluation is specifically about performance on unseen data." data-incorrect-msg="Not quite. Which stage is specifically about testing on data the model hasn't trained on?">
-  <div class="question">1. Which stage checks how well the model performs on data it has never seen before?</div>
-  <label><input type="radio" name="q1" data-correct="false"> The training stage</label>
+<div class="quiz" data-correct-msg="Correct." data-incorrect-msg="Not quite — reread the explanation below and try again.">
+  <div class="question">1. A company is building a model to predict equipment failure. Before releasing it, the team sets aside 20% of its labeled sensor data, never shows it to the model during training, and uses it afterward to check the model's accuracy. Which stage of the ML lifecycle does this describe?</div>
+  <label><input type="radio" name="q1" data-correct="false"> The data collection stage</label>
   <label><input type="radio" name="q1" data-correct="true"> The evaluation stage</label>
   <label><input type="radio" name="q1" data-correct="false"> The deployment stage</label>
   <label><input type="radio" name="q1" data-correct="false"> The monitoring stage</label>
   <button type="button" class="quiz-submit">Check</button>
   <div class="feedback"></div>
+  <div class="explain">This is the textbook definition of a holdout/test set: data the model never trained on, used specifically to measure real performance.</div>
 </div>
 
-<div class="quiz" data-correct-msg="Correct: this is called drift, and it's exactly what monitoring is meant to catch." data-incorrect-msg="Not quite. Think about what actually changes in the real world after launch, not inside the model itself.">
-  <div class="question">2. A model was accurate at launch but its accuracy drops six months later. Why is ongoing monitoring needed?</div>
-  <label><input type="radio" name="q2" data-correct="true"> Because data patterns can change</label>
-  <label><input type="radio" name="q2" data-correct="false"> Because training data gets deleted</label>
-  <label><input type="radio" name="q2" data-correct="false"> Because model labels get renamed</label>
-  <label><input type="radio" name="q2" data-correct="false"> Because cloud servers become slower</label>
+<div class="quiz" data-correct-msg="Correct." data-incorrect-msg="Not quite — reread the explanation below and try again.">
+  <div class="question">2. A retail company's product-recommendation model performed well at launch, but six months later shoppers complain that suggestions feel outdated, even though nobody changed the model's code. What best explains this?</div>
+  <label><input type="radio" name="q2" data-correct="false"> The model overfit its training data</label>
+  <label><input type="radio" name="q2" data-correct="false"> The company skipped the evaluation stage</label>
+  <label><input type="radio" name="q2" data-correct="true"> Real-world shopping patterns have drifted</label>
+  <label><input type="radio" name="q2" data-correct="false"> The training data was never labeled</label>
   <button type="button" class="quiz-submit">Check</button>
   <div class="feedback"></div>
+  <div class="explain">The model itself didn't change — the world did. That gap between training-time data and real-world data is drift, and it's what monitoring exists to catch.</div>
+</div>
+
+<div class="quiz" data-correct-msg="Correct." data-incorrect-msg="Not quite — reread the explanation below and try again.">
+  <div class="question">3. A model scores 99% accuracy on the data it trained on, but only 60% on new customer data it has never seen. What does this pattern most likely indicate?</div>
+  <label><input type="radio" name="q3" data-correct="true"> The model overfit its training data</label>
+  <label><input type="radio" name="q3" data-correct="false"> The model's training data drifted</label>
+  <label><input type="radio" name="q3" data-correct="false"> The model was never deployed</label>
+  <label><input type="radio" name="q3" data-correct="false"> The model needs more monitoring</label>
+  <button type="button" class="quiz-submit">Check</button>
+  <div class="feedback"></div>
+  <div class="explain">A huge gap between training-set accuracy and unseen-data accuracy is the classic signature of overfitting: the model memorized specifics instead of learning the general pattern.</div>
 </div>
 
 <p class="callout">
-  <strong>Something unclear?</strong> Ask me directly in the conversation —
-  I'm your teacher throughout this process, not just the one writing the
-  lessons.
+  <strong>Still unclear on something?</strong> Tell me exactly which part —
+  a term, a stage, the difference between two of them — and I'll explain it
+  a different way rather than repeating the same explanation.
 </p>
 
 <p class="callout">
@@ -111,6 +206,29 @@
   <span>Lesson 4: coming soon</span>
 </nav>
 
-<script src="../assets/quiz.js"></script>
+<script>
+(function () {
+  function initQuiz(quiz) {
+    var button = quiz.querySelector(".quiz-submit");
+    var feedback = quiz.querySelector(".feedback");
+    if (!button || !feedback) return;
+    button.addEventListener("click", function () {
+      var checked = quiz.querySelector("input[type=radio]:checked");
+      feedback.style.display = "block";
+      if (!checked) {
+        feedback.className = "feedback incorrect";
+        feedback.textContent = "Pick an option before checking.";
+        return;
+      }
+      var isCorrect = checked.dataset.correct === "true";
+      feedback.className = "feedback " + (isCorrect ? "correct" : "incorrect");
+      feedback.textContent = isCorrect
+        ? (quiz.dataset.correctMsg || "Correct.")
+        : (quiz.dataset.incorrectMsg || "Not quite. Try again.");
+    });
+  }
+  document.querySelectorAll(".quiz").forEach(initQuiz);
+})();
+</script>
 </body>
 </html>

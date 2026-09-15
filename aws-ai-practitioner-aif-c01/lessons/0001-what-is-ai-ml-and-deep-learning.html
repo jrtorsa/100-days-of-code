@@ -4,7 +4,62 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Lesson 1 — What are AI, ML, and Deep Learning?</title>
-<link rel="stylesheet" href="../assets/style.css" />
+<style>
+:root {
+  --ink: #1a1a1a; --paper: #fdfbf7; --muted: #6b6558; --rule: #ddd6c8;
+  --accent: #a4501f; --accent-soft: #f4e9dd; --good: #2f6b3a; --bad: #a3312a;
+  --max-width: 42rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #ece7dd; --paper: #1c1a16; --muted: #a39c8b; --rule: #3a362c;
+    --accent: #e08a4f; --accent-soft: #332a20; --good: #6fbf7a; --bad: #e2837c;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.6; max-width: var(--max-width); margin: 0 auto;
+  padding: 2.5rem 1.25rem 5rem; font-size: 1.05rem;
+}
+h1, h2, h3 { font-family: inherit; line-height: 1.25; color: var(--ink); }
+h1 { font-size: 1.9rem; margin-bottom: 0.25rem; }
+.kicker {
+  font-family: -apple-system, "Segoe UI", sans-serif; text-transform: uppercase;
+  letter-spacing: 0.08em; font-size: 0.75rem; color: var(--accent); font-weight: 600;
+}
+p, li { max-width: 42ch; }
+.wide p, .wide li { max-width: none; }
+a { color: var(--accent); }
+.card {
+  border: 1px solid var(--rule); border-radius: 6px; padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0; background: color-mix(in srgb, var(--paper) 92%, var(--accent) 8%);
+}
+.callout {
+  border-left: 3px solid var(--accent); padding: 0.25rem 1rem; margin: 1.5rem 0;
+  background: var(--accent-soft);
+}
+.source { font-family: -apple-system, "Segoe UI", sans-serif; font-size: 0.85rem; color: var(--muted); }
+hr.rule { border: none; border-top: 1px solid var(--rule); margin: 2.5rem 0; }
+nav.lesson-nav {
+  font-family: -apple-system, "Segoe UI", sans-serif; font-size: 0.85rem;
+  display: flex; justify-content: space-between; color: var(--muted); margin-top: 3rem; gap: 1rem; flex-wrap: wrap;
+}
+.quiz { border: 1px solid var(--rule); border-radius: 6px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+.quiz .question { font-weight: 600; margin-bottom: 0.75rem; max-width: none; }
+.quiz label { display: block; padding: 0.4rem 0.6rem; border-radius: 4px; cursor: pointer; max-width: none; }
+.quiz label:hover { background: var(--accent-soft); }
+.quiz button {
+  font-family: inherit; font-size: 0.95rem; margin-top: 0.75rem; padding: 0.4rem 1rem;
+  border-radius: 4px; border: 1px solid var(--accent); background: var(--accent); color: var(--paper); cursor: pointer;
+}
+.quiz .feedback { margin-top: 0.75rem; font-weight: 600; display: none; max-width: none; }
+.quiz .feedback.correct { color: var(--good); }
+.quiz .feedback.incorrect { color: var(--bad); }
+.quiz .explain { margin-top: 0.5rem; font-weight: 400; color: var(--muted); font-size: 0.95rem; }
+@media print { body { max-width: none; font-size: 11pt; } .quiz button, nav.lesson-nav { display: none; } }
+</style>
 </head>
 <body>
 
@@ -79,32 +134,34 @@
   <a href="https://docs.aws.amazon.com/pdfs/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.pdf">official Exam Guide</a>.
 </p>
 
-<h2>Practice retrieval (don't scroll back up before answering)</h2>
+<h2>Practice with exam-style scenarios</h2>
 
-<div class="quiz" data-correct-msg="Correct: Deep Learning lives inside Machine Learning." data-incorrect-msg="Not quite. Look at the nesting doll above again: what's further inside?">
-  <div class="question">1. Deep Learning is a subset of:</div>
-  <label><input type="radio" name="q1" data-correct="true"> Is a subset of Machine Learning</label>
-  <label><input type="radio" name="q1" data-correct="false"> Is a subset of Cloud Computing</label>
-  <label><input type="radio" name="q1" data-correct="false"> Is a subset of Generative AI</label>
-  <label><input type="radio" name="q1" data-correct="false"> Is a subset of AWS Bedrock</label>
+<div class="quiz" data-correct-msg="Correct." data-incorrect-msg="Not quite — reread the explanation below and try again.">
+  <div class="question">1. A hospital uses a system with many-layered neural networks trained on thousands of X-ray images to detect signs of pneumonia. Which term most precisely describes this system?</div>
+  <label><input type="radio" name="q1" data-correct="false"> This is an example of general AI</label>
+  <label><input type="radio" name="q1" data-correct="false"> This is an example of basic ML</label>
+  <label><input type="radio" name="q1" data-correct="true"> This is an example of deep learning</label>
+  <label><input type="radio" name="q1" data-correct="false"> This is an example of rule automation</label>
   <button type="button" class="quiz-submit">Check</button>
   <div class="feedback"></div>
+  <div class="explain">"Many-layered neural networks" is the defining feature of deep learning specifically, not just ML in general.</div>
 </div>
 
-<div class="quiz" data-correct-msg="Correct: Bedrock is AWS's service for foundation models / Generative AI." data-incorrect-msg="Not quite. Think about which of these four is used to generate text or images with a foundation model.">
-  <div class="question">2. Which of these is an example of Generative AI on AWS?</div>
-  <label><input type="radio" name="q2" data-correct="false"> Amazon EC2</label>
-  <label><input type="radio" name="q2" data-correct="true"> Amazon Bedrock</label>
-  <label><input type="radio" name="q2" data-correct="false"> Amazon S3</label>
-  <label><input type="radio" name="q2" data-correct="false"> Amazon IAM</label>
+<div class="quiz" data-correct-msg="Correct." data-incorrect-msg="Not quite — reread the explanation below and try again.">
+  <div class="question">2. A marketing team wants a tool that can write brand-new draft product descriptions from a short prompt, rather than classify or score existing text. Which AWS service category fits this need?</div>
+  <label><input type="radio" name="q2" data-correct="false"> Amazon EC2 for compute capacity</label>
+  <label><input type="radio" name="q2" data-correct="false"> Amazon S3 for object storage</label>
+  <label><input type="radio" name="q2" data-correct="false"> Amazon IAM for access control</label>
+  <label><input type="radio" name="q2" data-correct="true"> Amazon Bedrock for generative AI</label>
   <button type="button" class="quiz-submit">Check</button>
   <div class="feedback"></div>
+  <div class="explain">"Generate brand-new content from a prompt" is the signature use case for generative AI — Bedrock is AWS's foundation-model service for exactly that.</div>
 </div>
 
 <p class="callout">
-  <strong>Something unclear?</strong> Ask me directly in the conversation —
-  I'm your teacher throughout this process, not just the one writing the
-  lessons. Better to resolve it now than carry it into lesson 2.
+  <strong>Still unclear on something?</strong> Tell me exactly which part —
+  a term, an example, the difference between two of them — and I'll explain
+  it a different way rather than repeating the same explanation.
 </p>
 
 <nav class="lesson-nav">
@@ -112,6 +169,29 @@
   <a href="0002-types-of-machine-learning.html">Lesson 2: Types of Machine Learning →</a>
 </nav>
 
-<script src="../assets/quiz.js"></script>
+<script>
+(function () {
+  function initQuiz(quiz) {
+    var button = quiz.querySelector(".quiz-submit");
+    var feedback = quiz.querySelector(".feedback");
+    if (!button || !feedback) return;
+    button.addEventListener("click", function () {
+      var checked = quiz.querySelector("input[type=radio]:checked");
+      feedback.style.display = "block";
+      if (!checked) {
+        feedback.className = "feedback incorrect";
+        feedback.textContent = "Pick an option before checking.";
+        return;
+      }
+      var isCorrect = checked.dataset.correct === "true";
+      feedback.className = "feedback " + (isCorrect ? "correct" : "incorrect");
+      feedback.textContent = isCorrect
+        ? (quiz.dataset.correctMsg || "Correct.")
+        : (quiz.dataset.incorrectMsg || "Not quite. Try again.");
+    });
+  }
+  document.querySelectorAll(".quiz").forEach(initQuiz);
+})();
+</script>
 </body>
 </html>
