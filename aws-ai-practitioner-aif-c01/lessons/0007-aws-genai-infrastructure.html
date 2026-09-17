@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lesson 7 — AWS Infrastructure for Generative AI</title>
+<style>
+:root {
+  --ink: #1a1a1a; --paper: #fdfbf7; --muted: #6b6558; --rule: #ddd6c8;
+  --accent: #a4501f; --accent-soft: #f4e9dd; --good: #2f6b3a; --bad: #a3312a;
+  --max-width: 42rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #ece7dd; --paper: #1c1a16; --muted: #a39c8b; --rule: #3a362c;
+    --accent: #e08a4f; --accent-soft: #332a20; --good: #6fbf7a; --bad: #e2837c;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.6; max-width: var(--max-width); margin: 0 auto;
+  padding: 2.5rem 1.25rem 5rem; font-size: 1.05rem;
+}
+h1, h2, h3 { font-family: inherit; line-height: 1.25; color: var(--ink); }
+h1 { font-size: 1.9rem; margin-bottom: 0.25rem; }
+.kicker {
+  font-family: -apple-system, "Segoe UI", sans-serif; text-transform: uppercase;
+  letter-spacing: 0.08em; font-size: 0.75rem; color: var(--accent); font-weight: 600;
+}
+p, li { max-width: 42ch; }
+.wide p, .wide li { max-width: none; }
+a { color: var(--accent); }
+.card {
+  border: 1px solid var(--rule); border-radius: 6px; padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0; background: color-mix(in srgb, var(--paper) 92%, var(--accent) 8%);
+}
+.callout {
+  border-left: 3px solid var(--accent); padding: 0.25rem 1rem; margin: 1.5rem 0;
+  background: var(--accent-soft);
+}
+.glossary dt { font-weight: 600; margin-top: 0.9rem; }
+.glossary dd { margin-left: 0; max-width: 42ch; }
+.source { font-family: -apple-system, "Segoe UI", sans-serif; font-size: 0.85rem; color: var(--muted); }
+hr.rule { border: none; border-top: 1px solid var(--rule); margin: 2.5rem 0; }
+nav.lesson-nav {
+  font-family: -apple-system, "Segoe UI", sans-serif; font-size: 0.85rem;
+  display: flex; justify-content: space-between; color: var(--muted); margin-top: 3rem; gap: 1rem; flex-wrap: wrap;
+}
+.quiz { border: 1px solid var(--rule); border-radius: 6px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+.quiz .question { font-weight: 600; margin-bottom: 0.75rem; max-width: none; }
+.quiz label { display: block; padding: 0.4rem 0.6rem; border-radius: 4px; cursor: pointer; max-width: none; }
+.quiz label:hover { background: var(--accent-soft); }
+.quiz button {
+  font-family: inherit; font-size: 0.95rem; margin-top: 0.75rem; padding: 0.4rem 1rem;
+  border-radius: 4px; border: 1px solid var(--accent); background: var(--accent); color: var(--paper); cursor: pointer;
+}
+.quiz .feedback { margin-top: 0.75rem; font-weight: 600; display: none; max-width: none; }
+.quiz .feedback.correct { color: var(--good); }
+.quiz .feedback.incorrect { color: var(--bad); }
+.quiz .explain { margin-top: 0.5rem; font-weight: 400; color: var(--muted); font-size: 0.95rem; }
+@media print { body { max-width: none; font-size: 11pt; } .quiz button, nav.lesson-nav { display: none; } }
+</style>
+</head>
+<body>
+
+<p class="kicker">Lesson 7 · Domain 2 — Fundamentals of Generative AI (24% of the exam)</p>
+<h1>AWS Infrastructure for Generative AI</h1>
+
+<p>
+  Lessons 4–6 covered the concepts. This lesson closes Domain 2 with the
+  concrete answer to "okay, so how do I actually <em>use</em> this on AWS?"
+  Four names to know, each solving a different problem.
+</p>
+
+<div class="card">
+  <strong>Amazon Bedrock</strong><br>
+  A fully managed service that gives you API access to several foundation
+  models (Anthropic's Claude, Amazon's own Nova/Titan, Meta's Llama,
+  Mistral, and others) through one consistent API — no servers to manage,
+  no model to host yourself. This is the default answer whenever a
+  question just says "build a generative AI application."
+
+  <hr class="rule" style="margin:1rem 0;">
+
+  <strong>Amazon Q</strong><br>
+  AWS's own ready-made GenAI assistant, in two flavors: <strong>Amazon Q
+  Business</strong> (a workplace assistant that answers questions using
+  your company's own documents and data) and <strong>Amazon Q
+  Developer</strong> (a coding assistant that suggests code and flags
+  security issues inside your IDE).
+
+  <hr class="rule" style="margin:1rem 0;">
+
+  <strong>PartyRock</strong><br>
+  A free, no-code playground built on top of Bedrock. Drag-and-drop your
+  way to a working GenAI app to test an idea, with zero coding required.
+
+  <hr class="rule" style="margin:1rem 0;">
+
+  <strong>Amazon SageMaker</strong><br>
+  The full ML toolkit from Lessons 1–3, now including
+  <strong>SageMaker JumpStart</strong>, which offers pre-trained foundation
+  models you can fine-tune and fully control — for teams that need more
+  customization than Bedrock's managed API gives them.
+</div>
+
+<h2>How to pick, in one line each</h2>
+<p class="wide">
+  No code, just want to try an idea → <strong>PartyRock</strong>. Need API
+  access to foundation models without managing infrastructure →
+  <strong>Bedrock</strong>. Want a ready-made assistant for work questions
+  or coding → <strong>Amazon Q</strong>. Need to fully control training,
+  fine-tuning, and deployment of a custom model → <strong>SageMaker</strong>.
+</p>
+
+<h2>The jargon, defined</h2>
+<dl class="glossary">
+  <dt>Managed service</dt>
+  <dd>AWS runs and scales the underlying infrastructure for you — you call an API, you don't provision or patch servers.</dd>
+
+  <dt>Bedrock Agent</dt>
+  <dd>A Bedrock feature that lets a foundation model break a task into steps and call other APIs/tools to complete it, instead of just returning text.</dd>
+
+  <dt>Guardrails</dt>
+  <dd>Bedrock's configurable filters that block certain topics, harmful content, or PII in a model's input or output — a technical control for the responsible-AI risks from Lesson 5.</dd>
+</dl>
+
+<div class="callout">
+  <strong>Why this matters for the exam:</strong> AIF-C01 loves to name a
+  need (no-code prototype, coding help, full model control, managed API
+  access) and ask which AWS service matches — exactly what the quiz below
+  practices.
+</div>
+
+<h2>Primary source</h2>
+<p class="source">
+  Watch the "Amazon Bedrock" and "Amazon Q" sections of
+  <a href="https://www.youtube.com/watch?v=WZeZZ8_W-M4">"AWS Certified AI Practitioner (AIF-C01) – Full Course" (Andrew Brown / ExamPro, freeCodeCamp)</a>,
+  or the equivalent unit in the
+  <a href="https://skillbuilder.aws/learning-plan/G8ENMJ5QBE/aws-artificial-intelligence-practitioner-learning-plan/SU2A1EJM1A">AWS Skill Builder Learning Plan</a>.
+  Scope confirmed against the
+  <a href="https://docs.aws.amazon.com/pdfs/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.pdf">official Exam Guide</a>, Domain 2.
+</p>
+
+<h2>Practice with exam-style scenarios</h2>
+
+<div class="quiz" data-correct-msg="Correct." data-incorrect-msg="Not quite — reread the service map above and try again.">
+  <div class="question">1. A developer wants to call several different foundation models through one consistent API, without provisioning or managing any servers. Which service fits best?</div>
+  <label><input type="radio" name="q1" data-correct="true"> Use Amazon Bedrock</label>
+  <label><input type="radio" name="q1" data-correct="false"> Use Amazon Q Developer</label>
+  <label><input type="radio" name="q1" data-correct="false"> Use AWS Lambda alone</label>
+  <label><input type="radio" name="q1" data-correct="false"> Use SageMaker Studio</label>
+  <button type="button" class="quiz-submit">Check</button>
+  <div class="feedback"></div>
+  <div class="explain">One managed API for multiple foundation models, with no infrastructure to run, is exactly what Bedrock provides.</div>
+</div>
+
+<div class="quiz" data-correct-msg="Correct." data-incorrect-msg="Not quite — reread the service map above and try again.">
+  <div class="question">2. A software team wants an assistant built into their IDE that suggests code and flags security vulnerabilities as they type. Which service fits best?</div>
+  <label><input type="radio" name="q2" data-correct="false"> Amazon Q Business</label>
+  <label><input type="radio" name="q2" data-correct="true"> Amazon Q Developer</label>
+  <label><input type="radio" name="q2" data-correct="false"> Amazon Bedrock Agents</label>
+  <label><input type="radio" name="q2" data-correct="false"> Amazon SageMaker Studio</label>
+  <button type="button" class="quiz-submit">Check</button>
+  <div class="feedback"></div>
+  <div class="explain">Coding-specific help inside an IDE, including security scanning, is Amazon Q Developer's job specifically (Q Business targets workplace document Q&A instead).</div>
+</div>
+
+<div class="quiz" data-correct-msg="Correct." data-incorrect-msg="Not quite — reread the service map above and try again.">
+  <div class="question">3. A product manager with no coding background wants to quickly prototype a simple generative AI app idea to demo to the team. Which tool fits best?</div>
+  <label><input type="radio" name="q3" data-correct="true"> PartyRock</label>
+  <label><input type="radio" name="q3" data-correct="false"> Amazon SageMaker</label>
+  <label><input type="radio" name="q3" data-correct="false"> AWS Lambda</label>
+  <label><input type="radio" name="q3" data-correct="false"> Amazon Comprehend</label>
+  <button type="button" class="quiz-submit">Check</button>
+  <div class="feedback"></div>
+  <div class="explain">No-code, fast prototyping of a GenAI idea is exactly what PartyRock is built for.</div>
+</div>
+
+<div class="quiz" data-correct-msg="Correct." data-incorrect-msg="Not quite — reread the service map above and try again.">
+  <div class="question">4. A company wants to fine-tune a foundation model on its own proprietary data and fully control the training and deployment infrastructure. Which service fits best?</div>
+  <label><input type="radio" name="q4" data-correct="true"> Amazon SageMaker</label>
+  <label><input type="radio" name="q4" data-correct="false"> PartyRock</label>
+  <label><input type="radio" name="q4" data-correct="false"> Amazon Q Business</label>
+  <label><input type="radio" name="q4" data-correct="false"> AWS IAM</label>
+  <button type="button" class="quiz-submit">Check</button>
+  <div class="feedback"></div>
+  <div class="explain">Full control over fine-tuning, training, and deployment infrastructure is SageMaker's territory — Bedrock trades some of that control for a simpler managed API.</div>
+</div>
+
+<p class="callout">
+  <strong>Something unclear?</strong> Tell me exactly which part — a
+  service, the difference between two of them, when to pick which — and
+  I'll explain it a different way.
+</p>
+
+<p class="callout">
+  <strong>Domain 2 complete.</strong> You've covered all of Domain 2 —
+  Fundamentals of Generative AI (24% of the exam): terminology, limitations,
+  when to use it, and the AWS services that run it. Next up: Domain 3,
+  Applications of Foundation Models (28% of the exam) — the biggest domain.
+</p>
+
+<nav class="lesson-nav">
+  <a href="../reference/aws-genai-services.html">Reference: AWS GenAI services →</a>
+  <span>Lesson 8: coming soon</span>
+</nav>
+
+<script>
+(function () {
+  function initQuiz(quiz) {
+    var button = quiz.querySelector(".quiz-submit");
+    var feedback = quiz.querySelector(".feedback");
+    if (!button || !feedback) return;
+    button.addEventListener("click", function () {
+      var checked = quiz.querySelector("input[type=radio]:checked");
+      feedback.style.display = "block";
+      if (!checked) {
+        feedback.className = "feedback incorrect";
+        feedback.textContent = "Pick an option before checking.";
+        return;
+      }
+      var isCorrect = checked.dataset.correct === "true";
+      feedback.className = "feedback " + (isCorrect ? "correct" : "incorrect");
+      feedback.textContent = isCorrect
+        ? (quiz.dataset.correctMsg || "Correct.")
+        : (quiz.dataset.incorrectMsg || "Not quite. Try again.");
+    });
+  }
+  document.querySelectorAll(".quiz").forEach(initQuiz);
+})();
+</script>
+</body>
+</html>

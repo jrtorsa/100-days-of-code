@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AWS GenAI Services — Quick Reference</title>
+<style>
+:root {
+  --ink: #1a1a1a; --paper: #fdfbf7; --muted: #6b6558; --rule: #ddd6c8;
+  --accent: #a4501f; --accent-soft: #f4e9dd; --good: #2f6b3a; --bad: #a3312a;
+  --max-width: 42rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #ece7dd; --paper: #1c1a16; --muted: #a39c8b; --rule: #3a362c;
+    --accent: #e08a4f; --accent-soft: #332a20; --good: #6fbf7a; --bad: #e2837c;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.6; max-width: var(--max-width); margin: 0 auto;
+  padding: 2.5rem 1.25rem 5rem; font-size: 1.05rem;
+}
+h1, h2, h3 { font-family: inherit; line-height: 1.25; color: var(--ink); }
+h1 { font-size: 1.9rem; margin-bottom: 0.25rem; }
+.kicker {
+  font-family: -apple-system, "Segoe UI", sans-serif; text-transform: uppercase;
+  letter-spacing: 0.08em; font-size: 0.75rem; color: var(--accent); font-weight: 600;
+}
+p, li { max-width: 42ch; }
+.wide p, .wide li { max-width: none; }
+a { color: var(--accent); }
+.callout { border-left: 3px solid var(--accent); padding: 0.25rem 1rem; margin: 1.5rem 0; background: var(--accent-soft); }
+.source { font-family: -apple-system, "Segoe UI", sans-serif; font-size: 0.85rem; color: var(--muted); }
+details.flashcard { border: 1px solid var(--rule); border-radius: 6px; padding: 0.75rem 1rem; margin: 0.75rem 0; }
+details.flashcard summary { cursor: pointer; font-weight: 600; list-style: none; max-width: none; }
+details.flashcard summary::-webkit-details-marker { display: none; }
+details.flashcard summary::before { content: "▸ "; color: var(--accent); }
+details.flashcard[open] summary::before { content: "▾ "; }
+details.flashcard .answer { margin-top: 0.6rem; padding-top: 0.6rem; border-top: 1px dashed var(--rule); max-width: none; }
+</style>
+</head>
+<body class="wide">
+<p class="kicker">Quick reference</p>
+<h1>AWS Generative AI services</h1>
+<p class="source">
+  Four names, four different jobs — read the need, not just the buzzword.
+</p>
+
+<table style="width:100%; border-collapse:collapse; margin-top:1.5rem;">
+  <thead>
+    <tr style="text-align:left; border-bottom:2px solid var(--rule);">
+      <th style="padding:0.5rem 0;">Service</th>
+      <th style="padding:0.5rem 0;">Best for</th>
+      <th style="padding:0.5rem 0;">Key trait</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border-bottom:1px solid var(--rule);">
+      <td style="padding:0.5rem 0;"><strong>Amazon Bedrock</strong></td>
+      <td style="padding:0.5rem 0;">Building an app on top of foundation models</td>
+      <td style="padding:0.5rem 0;">One managed API, multiple model providers</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--rule);">
+      <td style="padding:0.5rem 0;"><strong>Amazon Q</strong></td>
+      <td style="padding:0.5rem 0;">Ready-made assistant (work Q&amp;A or coding)</td>
+      <td style="padding:0.5rem 0;">Business = docs; Developer = IDE/code</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--rule);">
+      <td style="padding:0.5rem 0;"><strong>PartyRock</strong></td>
+      <td style="padding:0.5rem 0;">Fast, no-code prototyping</td>
+      <td style="padding:0.5rem 0;">Free, drag-and-drop, built on Bedrock</td>
+    </tr>
+    <tr>
+      <td style="padding:0.5rem 0;"><strong>Amazon SageMaker</strong></td>
+      <td style="padding:0.5rem 0;">Full control over training/fine-tuning</td>
+      <td style="padding:0.5rem 0;">JumpStart offers pre-trained models to customize</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout" style="margin-top:1.5rem;">
+  <strong>One-line filter:</strong> no code → PartyRock. Managed API access
+  → Bedrock. Ready-made assistant → Amazon Q. Full custom control →
+  SageMaker.
+</div>
+
+<h2>Test yourself</h2>
+<p class="source">Click a scenario to reveal the service — try to answer before you click.</p>
+
+<details class="flashcard">
+  <summary>A team wants to call Claude, Titan, and Llama through one API without hosting any model themselves.</summary>
+  <div class="answer"><strong>Amazon Bedrock</strong> — one managed API across foundation-model providers.</div>
+</details>
+
+<details class="flashcard">
+  <summary>An employee wants to ask questions and get answers pulled from the company's internal wiki and documents.</summary>
+  <div class="answer"><strong>Amazon Q Business</strong> — a workplace assistant grounded in company data.</div>
+</details>
+
+<details class="flashcard">
+  <summary>A non-technical founder wants to test a GenAI app idea this afternoon, with zero code.</summary>
+  <div class="answer"><strong>PartyRock</strong> — a free, no-code GenAI playground.</div>
+</details>
+
+<p class="source" style="margin-top:2rem;">
+  Back to <a href="../lessons/0007-aws-genai-infrastructure.html">Lesson 7</a> ·
+  <a href="domain-map.html">Domain map</a>
+</p>
+</body>
+</html>
