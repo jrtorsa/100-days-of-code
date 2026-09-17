@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GenAI Use Cases — Quick Reference</title>
+<style>
+:root {
+  --ink: #1a1a1a; --paper: #fdfbf7; --muted: #6b6558; --rule: #ddd6c8;
+  --accent: #a4501f; --accent-soft: #f4e9dd; --good: #2f6b3a; --bad: #a3312a;
+  --max-width: 42rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #ece7dd; --paper: #1c1a16; --muted: #a39c8b; --rule: #3a362c;
+    --accent: #e08a4f; --accent-soft: #332a20; --good: #6fbf7a; --bad: #e2837c;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.6; max-width: var(--max-width); margin: 0 auto;
+  padding: 2.5rem 1.25rem 5rem; font-size: 1.05rem;
+}
+h1, h2, h3 { font-family: inherit; line-height: 1.25; color: var(--ink); }
+h1 { font-size: 1.9rem; margin-bottom: 0.25rem; }
+.kicker {
+  font-family: -apple-system, "Segoe UI", sans-serif; text-transform: uppercase;
+  letter-spacing: 0.08em; font-size: 0.75rem; color: var(--accent); font-weight: 600;
+}
+p, li { max-width: 42ch; }
+.wide p, .wide li { max-width: none; }
+a { color: var(--accent); }
+.callout { border-left: 3px solid var(--accent); padding: 0.25rem 1rem; margin: 1.5rem 0; background: var(--accent-soft); }
+.source { font-family: -apple-system, "Segoe UI", sans-serif; font-size: 0.85rem; color: var(--muted); }
+.cols { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem; }
+.cols .col { flex: 1 1 16rem; }
+.cols h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+.cols .good h3 { color: var(--good); }
+.cols .bad h3 { color: var(--bad); }
+.cols ul { padding-left: 1.1rem; max-width: none; }
+details.flashcard { border: 1px solid var(--rule); border-radius: 6px; padding: 0.75rem 1rem; margin: 0.75rem 0; }
+details.flashcard summary { cursor: pointer; font-weight: 600; list-style: none; max-width: none; }
+details.flashcard summary::-webkit-details-marker { display: none; }
+details.flashcard summary::before { content: "▸ "; color: var(--accent); }
+details.flashcard[open] summary::before { content: "▾ "; }
+details.flashcard .answer { margin-top: 0.6rem; padding-top: 0.6rem; border-top: 1px dashed var(--rule); max-width: none; }
+</style>
+</head>
+<body class="wide">
+<p class="kicker">Quick reference</p>
+<h1>Generative AI: good fit vs. poor fit</h1>
+<p class="source">
+  The litmus test: can a person review the output before it causes harm,
+  and does the task tolerate "good enough" over one exact answer?
+</p>
+
+<div class="cols">
+  <div class="col good">
+    <h3>Good fits</h3>
+    <ul>
+      <li>Drafting marketing copy or emails (human edits before sending)</li>
+      <li>Summarizing long documents for a quick skim</li>
+      <li>Conversational chatbots for general Q&amp;A</li>
+      <li>Generating first-draft code for a developer to review</li>
+      <li>Personalizing product descriptions at scale</li>
+    </ul>
+  </div>
+  <div class="col bad">
+    <h3>Poor fits</h3>
+    <ul>
+      <li>Calculating exact interest, tax, or payroll amounts</li>
+      <li>Real-time safety shutoffs with no time for review</li>
+      <li>Anything requiring a fully auditable, reproducible decision trail</li>
+      <li>Tasks where a wrong-but-plausible answer causes immediate harm</li>
+    </ul>
+  </div>
+</div>
+
+<div class="callout" style="margin-top:1.5rem;">
+  <strong>One-line filter:</strong> review-tolerant + creative/subjective →
+  good fit. No time to review + needs exactness → poor fit.
+</div>
+
+<h2>Test yourself</h2>
+<p class="source">Click a scenario to reveal the verdict — try to answer before you click.</p>
+
+<details class="flashcard">
+  <summary>A support team wants first-draft replies to customer emails, which an agent edits before sending.</summary>
+  <div class="answer"><strong>Good fit</strong> — a human reviews every output before it reaches the customer.</div>
+</details>
+
+<details class="flashcard">
+  <summary>A payroll system needs to calculate each employee's exact paycheck down to the cent.</summary>
+  <div class="answer"><strong>Poor fit</strong> — this needs guaranteed, exact arithmetic, not a probabilistic best guess.</div>
+</details>
+
+<details class="flashcard">
+  <summary>An autonomous vehicle must decide, in real time, whether to brake to avoid a collision.</summary>
+  <div class="answer"><strong>Poor fit</strong> — safety-critical and instantaneous, with no time for a human to catch a wrong answer.</div>
+</details>
+
+<p class="source" style="margin-top:2rem;">
+  Back to <a href="../lessons/0006-when-to-use-genai.html">Lesson 6</a> ·
+  <a href="domain-map.html">Domain map</a>
+</p>
+</body>
+</html>
