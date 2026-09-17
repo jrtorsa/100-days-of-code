@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AIF-C01 Study Roadmap</title>
+<style>
+:root {
+  --ink: #1a1a1a; --paper: #fdfbf7; --muted: #6b6558; --rule: #ddd6c8;
+  --accent: #a4501f; --accent-soft: #f4e9dd; --good: #2f6b3a; --bad: #a3312a;
+  --max-width: 46rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #ece7dd; --paper: #1c1a16; --muted: #a39c8b; --rule: #3a362c;
+    --accent: #e08a4f; --accent-soft: #332a20; --good: #6fbf7a; --bad: #e2837c;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  line-height: 1.6; max-width: var(--max-width); margin: 0 auto;
+  padding: 2.5rem 1.25rem 5rem; font-size: 1.05rem;
+}
+h1, h2, h3 { font-family: inherit; line-height: 1.25; color: var(--ink); }
+h1 { font-size: 1.9rem; margin-bottom: 0.25rem; }
+.kicker {
+  font-family: -apple-system, "Segoe UI", sans-serif; text-transform: uppercase;
+  letter-spacing: 0.08em; font-size: 0.75rem; color: var(--accent); font-weight: 600;
+}
+p, li { max-width: 46ch; }
+.wide p, .wide li { max-width: none; }
+a { color: var(--accent); }
+.source { font-family: -apple-system, "Segoe UI", sans-serif; font-size: 0.85rem; color: var(--muted); }
+.callout { border-left: 3px solid var(--accent); padding: 0.25rem 1rem; margin: 1.5rem 0; background: var(--accent-soft); }
+
+/* Overall progress */
+.progress-wrap { margin: 1.5rem 0 2rem; }
+.progress-track { background: var(--rule); border-radius: 999px; height: 0.6rem; overflow: hidden; }
+.progress-fill { background: var(--accent); height: 100%; }
+.progress-label { font-family: -apple-system, "Segoe UI", sans-serif; font-size: 0.85rem; color: var(--muted); margin-top: 0.4rem; }
+
+/* Domain sections */
+.domain {
+  border: 1px solid var(--rule); border-radius: 8px; padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+}
+.domain-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+.domain-head h2 { font-size: 1.15rem; margin: 0; }
+.domain-weight {
+  font-family: -apple-system, "Segoe UI", sans-serif; font-size: 0.8rem; color: var(--muted);
+  border: 1px solid var(--rule); border-radius: 999px; padding: 0.1rem 0.6rem; white-space: nowrap;
+}
+.domain-track { background: var(--rule); border-radius: 999px; height: 0.4rem; overflow: hidden; margin: 0.6rem 0 1rem; }
+.domain-fill { background: var(--accent); height: 100%; }
+
+ul.lessons { list-style: none; padding: 0; margin: 0; max-width: none; }
+ul.lessons li {
+  display: flex; align-items: baseline; gap: 0.6rem; padding: 0.35rem 0; max-width: none;
+  border-bottom: 1px dashed var(--rule);
+}
+ul.lessons li:last-child { border-bottom: none; }
+.status { width: 1.3rem; flex: none; text-align: center; }
+.status.done { color: var(--good); }
+.status.todo { color: var(--muted); }
+.lesson-title.todo { color: var(--muted); font-style: italic; }
+.lesson-title a { text-decoration: none; }
+.lesson-title a:hover { text-decoration: underline; }
+
+.legend {
+  font-family: -apple-system, "Segoe UI", sans-serif; font-size: 0.8rem; color: var(--muted);
+  display: flex; gap: 1.5rem; margin: 1rem 0 0;
+}
+</style>
+</head>
+<body class="wide">
+
+<p class="kicker">AWS Certified AI Practitioner (AIF-C01)</p>
+<h1>Study Roadmap</h1>
+<p class="source">
+  Last updated after Lesson 6. This page tracks what's done and what's
+  planned — the planned titles are a working estimate and will shift as we
+  go, same as any real course plan.
+</p>
+
+<div class="progress-wrap">
+  <div class="progress-track"><div class="progress-fill" style="width:30%;"></div></div>
+  <div class="progress-label">6 of ~20 planned lessons done (≈30%)</div>
+</div>
+
+<div class="legend">
+  <span>✅ done</span>
+  <span>⏳ planned, not written yet</span>
+</div>
+
+<!-- DOMAIN 1 -->
+<div class="domain">
+  <div class="domain-head">
+    <h2>Domain 1 — Fundamentals of AI and ML</h2>
+    <span class="domain-weight">20% of exam</span>
+  </div>
+  <div class="domain-track"><div class="domain-fill" style="width:100%;"></div></div>
+  <ul class="lessons">
+    <li><span class="status done">✅</span><span class="lesson-title"><a href="lessons/0001-what-is-ai-ml-and-deep-learning.html">Lesson 1 — What are AI, ML, and Deep Learning?</a></span></li>
+    <li><span class="status done">✅</span><span class="lesson-title"><a href="lessons/0002-types-of-machine-learning.html">Lesson 2 — Types of Machine Learning</a></span></li>
+    <li><span class="status done">✅</span><span class="lesson-title"><a href="lessons/0003-ml-lifecycle.html">Lesson 3 — The Machine Learning Lifecycle</a></span></li>
+  </ul>
+</div>
+
+<!-- DOMAIN 2 -->
+<div class="domain">
+  <div class="domain-head">
+    <h2>Domain 2 — Fundamentals of Generative AI</h2>
+    <span class="domain-weight">24% of exam</span>
+  </div>
+  <div class="domain-track"><div class="domain-fill" style="width:75%;"></div></div>
+  <ul class="lessons">
+    <li><span class="status done">✅</span><span class="lesson-title"><a href="lessons/0004-foundation-models-and-tokens.html">Lesson 4 — Foundation Models and Tokens</a></span></li>
+    <li><span class="status done">✅</span><span class="lesson-title"><a href="lessons/0005-hallucinations-and-limitations.html">Lesson 5 — Hallucinations and Limitations</a></span></li>
+    <li><span class="status done">✅</span><span class="lesson-title"><a href="lessons/0006-when-to-use-genai.html">Lesson 6 — When to Use (and Not Use) Generative AI</a></span></li>
+    <li><span class="status todo">⏳</span><span class="lesson-title todo">Lesson 7 — AWS Infrastructure for GenAI (Bedrock, Amazon Q, PartyRock)</span></li>
+  </ul>
+</div>
+
+<!-- DOMAIN 3 -->
+<div class="domain">
+  <div class="domain-head">
+    <h2>Domain 3 — Applications of Foundation Models</h2>
+    <span class="domain-weight">28% of exam</span>
+  </div>
+  <div class="domain-track"><div class="domain-fill" style="width:0%;"></div></div>
+  <ul class="lessons">
+    <li><span class="status todo">⏳</span><span class="lesson-title todo">Lesson 8 — Prompt Engineering Basics</span></li>
+    <li><span class="status todo">⏳</span><span class="lesson-title todo">Lesson 9 — Retrieval-Augmented Generation (RAG)</span></li>
+    <li><span class="status todo">⏳</span><span class="lesson-title todo">Lesson 10 — Embeddings and Vector Databases</span></li>
+    <li><span class="status todo">⏳</span><span class="lesson-title todo">Lesson 11 — Customizing Models: Pre-training, Fine-tuning, Prompt Engineering</span></li>
+    <li><span class="status todo">⏳</span><span class="lesson-title todo">Lesson 12 — Amazon Bedrock Deep Dive (Agents, Guardrails)</span></li>
+    <li><span class="status todo">⏳</span><span class="lesson-title todo">Lesson 13 — AWS Pre-built AI Services (Comprehend, Rekognition, Textract...)</span></li>
+    <li><span class="status todo">⏳</span><span class="lesson-title todo">Lesson 14 — Evaluating Model Performance</span></li>
+  </ul>
+</div>
+
+<!-- DOMAIN 4 -->
+<div class="domain">
+  <div class="domain-head">
+    <h2>Domain 4 — Guidelines for Responsible AI</h2>
+    <span class="domain-weight">14% of exam</span>
+  </div>
+  <div class="domain-track"><div class="domain-fill" style="width:0%;"></div></div>
+  <ul class="lessons">
+    <li><span class="status todo">⏳</span><span class="lesson-title todo">Lesson 15 — Responsible AI Principles (fairness, explainability, transparency)</span></li>
+    <li><span class="status todo">⏳</span><span class="lesson-title todo">Lesson 16 — Bias Detection and Mitigation Tools</span></li>
+  </ul>
+</div>
+
+<!-- DOMAIN 5 -->
+<div class="domain">
+  <div class="domain-head">
+    <h2>Domain 5 — Security, Compliance, and Governance for AI</h2>
+    <span class="domain-weight">14% of exam</span>
+  </div>
+  <div class="domain-track"><div class="domain-fill" style="width:0%;"></div></div>
+  <ul class="lessons">
+    <li><span class="status todo">⏳</span><span class="lesson-title todo">Lesson 17 — IAM and Access Control for AI Workloads</span></li>
+    <li><span class="status todo">⏳</span><span class="lesson-title todo">Lesson 18 — Data Protection and Encryption for AI</span></li>
+    <li><span class="status todo">⏳</span><span class="lesson-title todo">Lesson 19 — Compliance, Governance, and Auditability</span></li>
+  </ul>
+</div>
+
+<!-- WRAP-UP -->
+<div class="domain">
+  <div class="domain-head">
+    <h2>Wrap-up</h2>
+    <span class="domain-weight">not scored</span>
+  </div>
+  <div class="domain-track"><div class="domain-fill" style="width:0%;"></div></div>
+  <ul class="lessons">
+    <li><span class="status todo">⏳</span><span class="lesson-title todo">Lesson 20 — Final Review and Exam-Day Strategy</span></li>
+  </ul>
+</div>
+
+<div class="callout">
+  <strong>Reference sheets so far:</strong>
+  <a href="reference/domain-map.html">Domain map</a> ·
+  <a href="reference/ml-learning-types.html">ML learning types</a> ·
+  <a href="reference/ml-lifecycle.html">ML lifecycle</a> ·
+  <a href="reference/genai-vocabulary.html">GenAI vocabulary</a> ·
+  <a href="reference/genai-limitations.html">GenAI limitations</a> ·
+  <a href="reference/genai-use-cases.html">GenAI use cases</a>
+</div>
+
+<p class="source" style="margin-top:2rem;">
+  See <a href="MISSION.md">MISSION.md</a> for why this roadmap exists and
+  what "done" looks like.
+</p>
+
+</body>
+</html>
